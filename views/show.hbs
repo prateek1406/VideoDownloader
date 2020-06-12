@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VideoDownloader.IO - Download Youtube Videos in MP3 and MP4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<link rel="icon" href="img/thumbs-up.svg" type="image/x-icon"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+body
+{
+    color:white;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+input[type="text"]
+{
+    width:40%;
+    outline:none;
+    border:none;
+}
+input::placeholder
+{
+    text-align:center;
+}
+.main 
+{
+    background-color:#502c6c;
+    height:200px;
+    /* border-bottom-right-radius:20%; */
+}
+.footer
+{
+    bottom:0;
+    height:200px;
+    background-color:#000;
+}
+ .box
+ {
+     max-width:500px;
+     height:50px;
+     border:2px solid white;
+     margin:17% auto;
+     border-radius:5px;
+     background-color:white;
+     /* display:inline-block; */
+ }
+ input[type="text"]
+ {
+     border:none;
+     outline:none;
+     background:transparent;
+ }   
+ input::placeholder
+ {
+     text-align:left;
+     margin-top:10px;
+     
+ }   
+ .btn
+ {
+     width:120px;
+     height:45px;
+     background-color:#ff5916;
+     border:1px solid #ff5916;
+     color:white;
+     font-weight:bold;
+ }  
+ .btn1
+ {
+     width:100%;
+     height:50px;
+     background-color:#ff5916;
+     border:1px solid #ff5916;
+     color:white;
+     font-weight:bold;
+     border-radius:20px;
+ }  
+ .btn:hover 
+ {
+     
+     color:white;
+     
+ }     
+</style>
+</head>
+<body>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-12">
+            <div style="font-weight:bold;font-size:24px;margin-top:10px;"><img src="img/down-arrow.svg" style="height:30px;width:30px;">  VideoDownloader.IO</div>
+        </div>
+        <div class="col-12">
+            <div class="box">
+                <div class="container-fluid">
+                    <form method="GET">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-7">
+                                    <input type="text" placeholder="Enter video URL"style="width:100%;height:100%;">
+                                </div>
+                                <div class="col-5" style="text-align:right;">
+                                    <button type="submit" class="btn">Search <i class="lni lni-arrow-right" style="font-size:20px;"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#502c6c" fill-opacity="1" d="M0,160L48,154.7C96,149,192,139,288,144C384,149,480,171,576,186.7C672,203,768,213,864,224C960,235,1056,245,1152,240C1248,235,1344,213,1392,202.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+<div class="container-fluid">
+    <div class="row" id="dom">
+        
+    </div>
+</div>
+<div class="container-fluid" style="margin-top:100px;">
+    <div class="row">
+        <div class="col-lg-4 col-xs-12 col-md-4"></div>
+        <div class="col-lg-4 col-xs-12 col-md-4">
+            <form method="GET" action="/downloadmp4">
+                <button type="submit" class="btn1">Download MP4</button>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-12"></div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-12"></div>
+        <div class="col-lg-4 col-md-4 col-xs-12">
+            <form>
+                <button type="submit" class="btn1">Download MP3</button>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-12"></div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top:100px;">
+<div class="row">
+    <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4" style="color:black;">
+         <div class="row">
+             <div class="col-3" style="text-align:center;">
+               <img src="img/copy.svg" style="width:50px;height:50px;">
+             </div>
+             <div class="col-9">
+                <div style="font-size:20px;">Copy Youtube URL</div>
+                <div style="text-align:justify;margin-top:20px;">Copy your video URL from Youtube that you need to download.You can use Ctrl+C or with the context menu</div>
+             </div>
+         </div>
+    </div>
+    <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4" style="color:black;">
+        <div class="row">
+            <div class="col-3" style="text-align:center;">
+              <img src="img/cursor.svg" style="width:50px;height:50px;">
+            </div>
+            <div class="col-9">
+                <div style="font-size:20px;">Paste in search field</div>
+                <div style="text-align:justify;margin-top:20px;">Paste Youtube video URL in the search field and click 'Search'. Use Ctrl+V or with the context menu</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4" style="color:black;">
+        <div class="row">
+            <div class="col-3" style="text-align:center;">
+              <img src="img/download.svg" style="width:50px;height:50px;">
+            </div>
+            <div class="col-9">
+                <div style="font-size:20px;">Download Video</div>
+                <div style="text-align:justify;margin-top:20px;">You will get a list of files for download,video and audio.Click the 'Download' button to start downloading the file.</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000" fill-opacity="1" d="M0,96L48,85.3C96,75,192,53,288,80C384,107,480,181,576,213.3C672,245,768,235,864,213.3C960,192,1056,160,1152,133.3C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-12" style="text-align:center;font-size:30px;">
+            <i class="lni lni-code" style="font-size:30px;"></i> &nbsp;  in &nbsp; <i class="lni lni-heart-filled" style="font-size:30px;"></i>
+        </div>
+        <div class="col-12">
+             <div style="font-size:30px;text-align:center;">By</div>
+        </div>
+        <div class="col-12" style="margin-top:10px;font-size:30px;text-align:center;">
+            <a href="https://www.linkedin.com/in/prateek-agarwal-44975a170/" style="margin-left:10px;"><i class="lni lni-linkedin-original" style="font-size:40px;color:white;"></i></a>
+            <a href="https://www.facebook.com/prateek.agarwal.927758" style="margin-left:10px;" ><i class="lni lni-facebook-oval" style="font-size:40px;color:white;"></i></a>
+            <a href="https://github.com/prateek1406" style="margin-left:10px;"><i class="lni lni-github-original" style="font-size:40px;color:white;"></i></a>
+            <a href="https://www.instagram.com/prateek_agarwal14/" style="margin-left:10px;"><i class="lni lni-instagram-filled" style="font-size:40px;color:white;"></i></a>
+
+       </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+   fetch('http://localhost:3000/fetch')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        console.log(data.thumbnailUrl);
+        console.log(data.title);
+        console.log(data.views);
+        console.log(data.likeCount);
+        var row=document.getElementById("dom");
+        var col1=document.createElement('div');
+        col1.setAttribute("class", "col-3");
+        var col2=document.createElement('div');
+         col2.setAttribute("class","col-6");
+          var col3=document.createElement('div');
+        col3.setAttribute("class", "col-3");
+        var img=document.createElement('img');
+        img.setAttribute("src",data.thumbnailUrl);
+        img.setAttribute("style","width:100%;height:auto;");
+        col2.appendChild(img);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        var col4=document.createElement('div');
+        col4.setAttribute("class","col-4");
+        var col5=document.createElement('div');
+         col5.setAttribute("style","margin-top:10px;")
+        col5.setAttribute("class","col-4");
+        var col6=document.createElement('div');
+        col6.setAttribute("class","col-4");
+        var div1=document.createElement('div');
+        div1.setAttribute("style","color:black;")
+         var like=document.createElement('i');
+         like.setAttribute("class","lni lni-thumbs-up");
+         like.setAttribute("style","color:blue;font-size:20px;");
+         var span=document.createElement('span');
+         span.setAttribute("style","font-size:20px;");
+         var text=document.createTextNode("   "+data.likeCount);
+           span.appendChild(text);
+           
+         var comment=document.createElement('i');
+         comment.setAttribute("class","lni lni-comments-alt");
+         comment.setAttribute("style","font-size:20px;color:black;margin-left:20px;");
+         var span1=document.createElement('span');
+         span1.setAttribute("style","font-size:20px;");
+         var text1=document.createTextNode(" "+data.commentCount);
+         span1.appendChild(text1);
+           div1.appendChild(like);
+           div1.appendChild(span);
+           div1.appendChild(comment);
+           div1.appendChild(span1);
+           col5.appendChild(div1);
+           row.appendChild(col4);
+           row.appendChild(col5);
+           row.appendChild(col6);
+           
+          
+
+
+         })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+    </script>
+</body>
+</html>
